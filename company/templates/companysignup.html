@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <div class="container">
+      {% if registered %}
+        <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Congratulations!</h4>
+  <p>You have successfully registered.</p>
+  <hr>
+  <p class="mb-0">Click here to<a href="/company/login" class="alert-link"> log in.</a></p>
+</div>
+      {% else %}
+    <div class="row">
+      <div class="col"></div>
+      <div clas="col">
+    <div class="card text-center mb-3" >
+      <div class="card-header text-white bg-info">
+      <h1 class="card-title" style="font-family: Roboto Mono">Sign Up</h1></div>
+      <div class="card-body">
+<form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {{ user_form|crispy }}
+          {{ profile_form|crispy }}
+          <input type="submit" name="" value="Register">
+        </form>
+    </div>
+<div class="card-footer text-muted">
+  <div class="alert alert-info" role="alert">
+    Already have an account?<a href="/company/login" class="alert-link">Sign In</a>
+  </div>
+  </div>
+</div>
+</div>        
+      {% endif %}
+
+    <div class="col"></div>
+    </div>
+  </div>
+{% endblock %}

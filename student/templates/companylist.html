@@ -1,0 +1,13 @@
+{% extends "studentbase.html" %}
+{% load static %}
+{% block content %}
+
+{% for instance in object_list %}
+
+<ul>
+	<li><a href="{% url 'company_detail_view' instance.id %}">{{ instance.company_name }}</a></li>
+</ul>
+
+{% endfor %}
+Number of companies={{ object_list|length }}
+{% endblock %}

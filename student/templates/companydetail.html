@@ -1,0 +1,41 @@
+{% extends "studentbase.html" %}
+
+{% block content %}
+<div class="container">
+<div class="jumbotron">
+
+
+
+<div class="card text-center">
+	<div class="card-body bg-info mb-3">
+  	<h4 class="card-title">{{ object.company_name }}</h4>
+  </div>
+
+<ul class="list-group list-group-flush">
+<li class="list-group-item">Established = {{ object.est_year }}</li>
+<li class="list-group-item">Headquarters={{ object.headquarters }}</li>
+<li class="list-group-item">Job Type   ={{ object.job_type }}</li>
+<li class="list-group-item">Designation ={{ object.designation }}</li>
+<li class="list-group-item">Minimum 10th marks ={{ object.min_10_percent }}</li>
+<li class="list-group-item">Minimum 12th marks ={{ object.min_12_percent }}</li>
+<li class="list-group-item">Minimum Btech. Cgpa={{ object.min_btech_cgpa }}</li>
+<li class="list-group-item">CTC       ={{ object.ctc }} lakhs</li>
+<li class="list-group-item">Bond years ={{ object.bond_years }} years</li>
+<li class="list-group-item">Bond Amount={{ object.bond_amount }} lakhs</li>
+<li class="list-group-item">About       ={{ object.about }}</li>
+<li class="list-group-item">Last Date to Apply={{ object.last_date_to_apply }}</li>
+
+
+<div class="card-body">
+	<center>
+<a class="btn btn-primary btn-lg"  href="#" role="button">Apply</a>
+	</center>
+</div>
+
+</ul>
+</div>
+
+
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+  <div class="p-3 mb-2 bg-info text-warning">
+        <div class="row">
+          <div class="col mx-auto text-center mb-5 section-heading">
+            <h1 style="font-family: Roboto Mono"><marquee>WELCOME TO THE PLACEMENT  PORTAL</marquee></h1>
+        	</div>
+		    </div>
+	</div>
+</div>
+{% include "caraousel.html" %}
+<div class="container-fluid">
+  <div class="jumbotron">
+  <div class="row">
+    <div class="col-4">
+      <h1 style="font-family: Rubik">Important Events</h1>
+      {% include 'list.html' %}
+    </div>
+    <div class="col-8">
+      <h1 style="font-family: Rubik">Students Speak</h1>
+      <div class="card">
+        <div class="card-body">
+        <p class="card-text" style="font-family: Roboto Mono">
+        <img src="{% static 'campusplacement/images/hero_1.jpg' %}" class="img-fluid">
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    {% include "charts.html" %}
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div data-spy="scroll" data-target="home-navbar" data-offset="0">
+      <div class="shadow p-3 my-4 bg-light rounded">
+      <h2 id="about" style="font-family: Rubik">About Us</h2>
+    </div>
+      <h6 style="font-family: Roboto Mono" class="text-justify">The Training & Placement Cell of the College lays emphasis on both the functions it is entrusted with namely the Training and the Placement.
+     The departments and its faculty members are also closely associated to the Training & Placement Process through proper representation in the Cell.<br>
+     The manifestation of skills gathered in an Engineering Course is properly achieved only when a student is successful in an Industry. The success of students in turn gives an identity to the College and the Industry benchmarks the College with respect to the quality of students passing out from the College. The students get formidable interface with premier Companies and the most suitable candidates are selected and offered jobs by these Companies.</h6>
+      <div class="shadow p-3 my-4 bg-light rounded">
+      <h2 id="contact" style="font-family: Rubik">Contact</h2>
+    </div>
+<h2 align=center style="font-family: Roboto Mono">Our TPO's</h2>
+{% include "table.html" %}
+<h2 style="font-family: Roboto Mono" align="center">Meet the Developers</h2>
+{% include "card.html" %}
+{% include "footer.html" %}
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'companybase.html' %}
+
+
+{% block content %}
+<div class="jumbotron">
+<h4 class="display-6 text-justify" align="center">
+Username             = {{ object.user }}<br>
+Company Name         = {{ object.company_name }}<br>
+Year Established     = {{ object.est_year }}<br>
+Email                = {{ user.email }}<br>
+HR Name              = {{ object.hr_name }}<br>
+HR Phone             = {{ object.hr_phn }}<br>
+Headquarters         = {{ object.headquarters }}<br>
+About                = {{ object.about }}<br>
+Job Type             = {{ object.job_type }}<br>
+Designation          = {{ object.designation }}<br>
+Cutoff marks 10th    = {{ object.min_10_percent }}<br>
+Cutoff marks 12th    = {{ object.min_12_percent }}<br>
+Cutoff CGPA Btech.   = {{ object.min_btech_cgpa }}<br>
+IT applicable        = {{ object.information_technology }}<br>
+Mechanical applicable= {{ object.mechanical }}<br>
+CSE applicable       = {{ object.cse }}<br>
+Electrical applicable= {{ object.ee }}<br>
+ECE applicable       = {{ object.ece }}<br>
+CIVIL applicable     = {{ object.civil }}<br>
+CTC                  = {{ object.ctc }}<br>
+Bond Years           = {{ object.bond_years }}<br>
+Bond Amount          = {{ object.bond_amount }}<br>
+Max. backlogs allowed= {{ object.no_of_backlogs }}<br>
+
+
+</h1>
+<center>
+<a class="btn btn-primary btn-lg"  href="{% url 'company_update' object.id %}" role="button">Update</a>
+</center>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

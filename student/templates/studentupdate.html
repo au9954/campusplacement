@@ -1,0 +1,9 @@
+{% extends "studentbase.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+<form method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{ form|crispy }}
+<button class="btn btn-pimary" type="submit">Update</button>
+</form>
+{% endblock %}

@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <div class="shadow p-3 my-4 bg-light rounded">
+    <h2>Our Performance</h2>
+  </div>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Baloo+Tamma+2|Rubik&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load Charts and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Draw the pie chart for Sarah's pizza when Charts is loaded.
+      google.charts.setOnLoadCallback(drawStudentChart);
+
+      // Draw the pie chart for the Anthony's pizza when Charts is loaded.
+      google.charts.setOnLoadCallback(drawCompanyChart);
+
+      // Callback that draws the pie chart for Sarah's pizza.
+      function drawStudentChart() {
+
+        // Create the data table for Sarah's pizza.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Branch');
+        data.addColumn('number', 'Company');
+        data.addRows([
+          ['IT', 55],
+          ['CSE', 70],
+          ['ECE', 30],
+          ['EE', 20],
+          ['ME', 15],
+          ['CE',10]
+        ]);
+
+        // Set options for Sarah's pie chart.
+        var options = {title:'Placed Students From Each branch',
+                       width:600,
+                       height:500,
+                     is3D:true,
+                     backgroundColor:'white',
+                     fontName:"Roboto Mono"
+                   };
+
+        // Instantiate and draw the chart for Sarah's pizza.
+        var chart = new google.visualization.PieChart(document.getElementById('Student_chart_div'));
+        chart.draw(data, options);
+      }
+
+      // Callback that draws the pie chart for Anthony's pizza.
+      function drawCompanyChart() {
+
+        // Create the data table for Anthony's pizza.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Company');
+        data.addColumn('number', 'Selections');
+        data.addRows([
+          ['TCS', 80],
+          ['LTI', 35],
+          ['Cognizant', 30],
+          ['Wipro', 10],
+          ['Virtusa', 5],
+          ['Amdocs',15],
+          ['Hexaware Technologies',10]
+        ]);
+
+        // Set options for Anthony's pie chart.
+        var options = {title:'Number of Selections per Company',
+                       width:600,
+                       height:500,
+                       is3D:true,
+                       sliceVisibilityThreshold: .05,
+                       backgroundColor:'white',
+
+                     };
+
+        // Instantiate and draw the chart for Anthony's pizza.
+        var chart = new google.visualization.PieChart(document.getElementById('Company_chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <!--Table and divs that hold the pie charts-->
+    <table class="columns">
+      <tr>
+        <td><div id="Student_chart_div" style="border: 0px solid #ccc"></div></td>
+        <td><div id="Company_chart_div" style="border: 0px solid #ccc"></div></td>
+      </tr>
+    </table>
+  </body>
+</html>
