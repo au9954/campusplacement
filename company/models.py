@@ -32,7 +32,7 @@ class Company(models.Model):
 	bond_years    = models.FloatField( blank=False, help_text='*required')
 	bond_amount   = models.FloatField(help_text='*In Lakhs',blank=False)
 	no_of_backlogs=models.IntegerField(blank=False,default=0)
-	last_date_to_apply=models.DateField(blank=False)
+	last_date_to_apply=models.DateField(blank=True,null=True)
 #	email         = models.EmailField(max_length=254,blank=False, help_text='*required')
 
 	def __str__(self):

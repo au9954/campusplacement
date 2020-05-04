@@ -1,0 +1,50 @@
+{% extends "companybase.html" %}
+
+{% block content %}
+<style>
+	.account-img{
+		max-width:200px;
+		max-height:200px;
+		margin: 0 auto;
+		border-radius: 50%;
+</style>
+
+
+
+<div class="container">
+<div class="jumbotron">
+
+
+<div class="card text-center">
+  <span class="border border-success">
+  <img class="card-img-top rounded-circle account-img" src="{{ object.photo.url }}" alt="Your Profile Pic">
+</span>
+  <div class="card-body bg-info mb-3">
+  	<h4 class="card-title">Student Profile</h4>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Name                = {{ object.name }}</li>
+    <li class="list-group-item">Gender              = {{ object.gender }}</li>
+    <li class="list-group-item">Email               = {{ email }}</li>
+    <li class="list-group-item">Phone Number        = {{ object.phone_number }}</li>
+    <li class="list-group-item">University Roll No. = {{ object.roll_no }}</li>
+    <li class="list-group-item">Branch              = {{ object.branch }}</li>
+    <li class="list-group-item">Date of Birth       = {{ object.dob }}</li>
+    <li class="list-group-item">Class 10(%)         = {{ object.class_10 }}</li>
+    <li class="list-group-item">Class 12(%)         = {{ object.class_12 }}</li>
+    <li class="list-group-item">Btech. CGPA         = {{ object.btech_cgpa }}</li>
+    <li class="list-group-item">Father's Name       = {{ object.father_name }}</li>
+    <li class="list-group-item">Mother's Name       = {{ object.mother_name }}</li>
+    <li class="list-group-item">Address             = {{ object.address }}</li>
+    <li class="list-group-item">Active Backlogs     = {{ object.no_of_backlogs }}</li>
+   </ul>
+  <div class="card-body">
+  	<center>
+    <a href="{% url 'select_view' object.id %}" class="btn btn-primary">Select</a>
+    </center>
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock %}

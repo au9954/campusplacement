@@ -1,0 +1,11 @@
+{% extends "companybase.html" %}
+
+{% block content %}
+
+{% for instance in object_list %}
+<ul>
+<li><a href="{% url 'student_detail' instance.id %}">{{ instance.name }}</a></li>
+
+{% endfor %}
+<ul>
+{% endblock %}

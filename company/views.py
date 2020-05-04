@@ -10,8 +10,8 @@ from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from .decorators import unauthenticated_user,allowed_users
-
-
+from student.models import Student
+from django.core.mail import send_mail
 
 @unauthenticated_user
 def comp_signup_view(request):
@@ -111,3 +111,40 @@ def company_change_password(request):
     else:
         form=PasswordChangeForm(request.user)
     return render(request,'changepassword.html',{'form':form})
+
+
+@login_required(login_url='company/login')
+@allowed_users(allowed_roles=['company'])
+def student_list(request):
+    queryset=Student.objects.all()
+    context={
+    "object_list":queryset
+    }
+    return render(request,"studentlist.html",context)
+
+
+@login_required(login_url='company/login')
+@allowed_users(allowed_roles=['company'])
+def student_detail(request,id):
+    obj=get_object_or_404(Student,id=id)
+    u=obj.user.email
+    context={
+    "object":obj,"email":u
+    }
+    return render(request,"studentdetail.html",context)
+
+
+
+def select_view(request,id):
+    obj=get_object_or_404(Student,id=id)
+    receiver=obj.user.email
+    sender=request.user.email
+    compname=request.user.id
+    detail=Company.objects.filter(user=compname)
+    name=detail[0].company_name
+    send_mail(
+        'Selection Confirmation from ' + name,
+        'Congratulations!You have been selected for interview.The interview details will be conveyed to your placement officer.All the best!',
+        sender,[receiver],
+        fail_silently=False,)
+    return render(request,"selectionmail.html")
