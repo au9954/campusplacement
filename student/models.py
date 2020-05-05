@@ -1,8 +1,8 @@
 from django.db import models
 from django.core.validators import MaxValueValidator,MinValueValidator,MaxLengthValidator,MinLengthValidator
 from django.contrib.auth.models import User
-from django.urls import reverse
 from company.models import Company
+from django.urls import reverse
 # Create your models here.
 
 
@@ -32,8 +32,10 @@ class Student(models.Model):
     mother_name=models.CharField(max_length=50,blank=False)
     address=models.TextField(max_length=254,blank=False,help_text='Please enter your permanent address')
     photo=models.ImageField(upload_to="student_images/%Y/%m/%d/",default="default.jpg",blank=True,help_text='Please upload your recent photograph')
+    applied_companies=models.ManyToManyField(Company)
     placed=models.BooleanField(default=False)
     placed_in=models.CharField(max_length=100,blank=True)
+
 
     def __str__(self):
         return self.name

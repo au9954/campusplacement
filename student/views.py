@@ -176,5 +176,7 @@ def company_detail_view(request,id):
 @login_required(login_url='student/login')
 @allowed_users(allowed_roles=['student'])
 def apply_view(request,id):
-
-    return HttpResponse("Applied")
+    stu_user=request.user.id
+    stu_detail=Student.objects.filter(user=stu_user)
+    stu_id=stu_detail[0].applied_companies.add(Company.objects.filter(id=id)[0])
+    return render(request,"applied.html",{})

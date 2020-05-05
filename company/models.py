@@ -34,6 +34,7 @@ class Company(models.Model):
 	no_of_backlogs=models.IntegerField(blank=False,default=0)
 	last_date_to_apply=models.DateField(blank=True,null=True)
 #	email         = models.EmailField(max_length=254,blank=False, help_text='*required')
+	
 
 	def __str__(self):
 		return self.company_name

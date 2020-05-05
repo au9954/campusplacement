@@ -116,7 +116,11 @@ def company_change_password(request):
 @login_required(login_url='company/login')
 @allowed_users(allowed_roles=['company'])
 def student_list(request):
-    queryset=Student.objects.all().order_by('branch')
+    comp=request.user.id
+    comp_detail=Company.objects.filter(user=comp)
+    comp_id=comp_detail[0].id
+    queryset=Company.objects.get(id=comp_id).student_set.all().order_by('branch')
+    print(queryset)
     context={
     "object_list":queryset
     }
@@ -149,3 +153,6 @@ def select_view(request,id):
         sender,[receiver],
         fail_silently=False,)
     return render(request,"selectionmail.html")
+
+
+

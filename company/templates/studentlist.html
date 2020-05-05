@@ -8,7 +8,7 @@
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Branch</th>
-      <th scope="col">Roll No.</th>
+      <th scope="col">Email</th>
     </tr>
   </thead>
   <tbody>
@@ -16,7 +16,7 @@
     <tr>
       <th scope="row"><a href="{% url 'student_detail' instance.id %}">{{ instance.name }}</a></th>
       <td>{{ instance.branch }}</td>
-      <td>{{ instance.roll_no }}</td>
+      <td>{{ instance.user.email }}</td>
     </tr>
     {% endfor %}
   </tbody>
