@@ -10,16 +10,16 @@
       // Load Charts and the corechart package.
       google.charts.load('current', {'packages':['corechart']});
 
-      // Draw the pie chart for Sarah's pizza when Charts is loaded.
+      // Draw the pie chart for Student when Charts is loaded.
       google.charts.setOnLoadCallback(drawStudentChart);
 
-      // Draw the pie chart for the Anthony's pizza when Charts is loaded.
+      // Draw the pie chart for the Company when Charts is loaded.
       google.charts.setOnLoadCallback(drawCompanyChart);
 
-      // Callback that draws the pie chart for Sarah's pizza.
+      // Callback that draws the pie chart for Student.
       function drawStudentChart() {
 
-        // Create the data table for Sarah's pizza.
+        // Create the data table for Departments
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Branch');
         data.addColumn('number', 'Company');
@@ -32,7 +32,7 @@
           ['CE',10]
         ]);
 
-        // Set options for Sarah's pie chart.
+        // Set options for Student pie chart.
         var options = {title:'Placed Students From Each branch',
                        width:600,
                        height:500,
@@ -41,15 +41,15 @@
                      fontName:"Roboto Mono"
                    };
 
-        // Instantiate and draw the chart for Sarah's pizza.
+        // Instantiate and draw the chart for Student.
         var chart = new google.visualization.PieChart(document.getElementById('Student_chart_div'));
         chart.draw(data, options);
       }
 
-      // Callback that draws the pie chart for Anthony's pizza.
+      // Callback that draws the pie chart for Company.
       function drawCompanyChart() {
 
-        // Create the data table for Anthony's pizza.
+        // Create the data table for Company.
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Company');
         data.addColumn('number', 'Selections');
@@ -63,7 +63,7 @@
           ['Hexaware Technologies',10]
         ]);
 
-        // Set options for Anthony's pie chart.
+        // Set options for Company pie chart.
         var options = {title:'Number of Selections per Company',
                        width:600,
                        height:500,
@@ -73,7 +73,7 @@
 
                      };
 
-        // Instantiate and draw the chart for Anthony's pizza.
+        // Instantiate and draw the chart for Company.
         var chart = new google.visualization.PieChart(document.getElementById('Company_chart_div'));
         chart.draw(data, options);
       }

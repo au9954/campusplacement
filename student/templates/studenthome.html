@@ -1,20 +1,10 @@
 {% extends "studentbase.html" %}
-
+{% load static %}
 {% block content %}
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-4">
-			<div class="alert alert-info">This is for notification.</div>
-			
-		</div>
-		<div class="col">
-			<div class="alert alert-info">This is for content(maybe graphs and charts)</div>
 			{% for instance in detail %}
-			{% if instance.placed %}Congratulations you are placed in{{ instance.placed_in }}.Buckle yourself for your future endeavours.{% else %}You are not placed yet.Keep Trying.{% endif %}
+			{% if instance.placed %}<img src="{% static 'campusplacement/images/icons/success.png' %}">Congratulations you are placed in{{ instance.placed_in }}.Buckle yourself for your future endeavours.{% else %}<img src="{% static 'campusplacement/images/icons/fail.jpeg' %}" alt="..."><br>You are not placed yet.Keep Trying.{% endif %}
 			{% endfor %}
-		</div>
-		
-	</div>
 </div>
 
 {% endblock %}

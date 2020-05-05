@@ -120,7 +120,6 @@ def student_list(request):
     comp_detail=Company.objects.filter(user=comp)
     comp_id=comp_detail[0].id
     queryset=Company.objects.get(id=comp_id).student_set.all().order_by('branch')
-    print(queryset)
     context={
     "object_list":queryset
     }

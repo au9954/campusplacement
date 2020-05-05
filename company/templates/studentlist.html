@@ -1,8 +1,13 @@
 {% extends "companybase.html" %}
 
 {% block content %}
-
-<table class="table table-hover">
+<br>
+<div class="container" style="width:400px" align="center">
+  <input type="text" name="search" onkeyup="myFunction()" id="search" class="form-control" placeholder="Search">
+</div>
+<br>
+<br>
+<table class="table table-hover" id="student-table">
   <caption>List of Applied Students</caption>
   <thead class="thead-light">
     <tr>
@@ -22,5 +27,24 @@
   </tbody>
 </table>
 
-
+<script>
+  function myFunction() {
+    var input,filter,tr,td,i,txtValue;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("student-table");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[1];
+      if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+} 
+</script> 
 {% endblock %}
