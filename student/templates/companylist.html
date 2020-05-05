@@ -4,8 +4,8 @@
 
 {% for instance in object_list %}
 
-<ul>
-	<li><a href="{% url 'company_detail_view' instance.id %}">{{ instance.company_name }}</a></li>
+<ul class="list-group">
+	<li class="list-group-item"><a href="{% url 'company_detail_view' instance.id %}">{{ instance.company_name }}</a></li>
 </ul>
 
 {% endfor %}

@@ -116,7 +116,7 @@ def company_change_password(request):
 @login_required(login_url='company/login')
 @allowed_users(allowed_roles=['company'])
 def student_list(request):
-    queryset=Student.objects.all()
+    queryset=Student.objects.all().order_by('branch')
     context={
     "object_list":queryset
     }
@@ -134,7 +134,8 @@ def student_detail(request,id):
     return render(request,"studentdetail.html",context)
 
 
-
+@login_required(login_url='company/login')
+@allowed_users(allowed_roles=['company'])
 def select_view(request,id):
     obj=get_object_or_404(Student,id=id)
     receiver=obj.user.email

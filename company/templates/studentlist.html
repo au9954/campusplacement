@@ -2,10 +2,25 @@
 
 {% block content %}
 
-{% for instance in object_list %}
-<ul>
-<li><a href="{% url 'student_detail' instance.id %}">{{ instance.name }}</a></li>
+<table class="table table-hover">
+  <caption>List of Applied Students</caption>
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Branch</th>
+      <th scope="col">Roll No.</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for instance in object_list %}
+    <tr>
+      <th scope="row"><a href="{% url 'student_detail' instance.id %}">{{ instance.name }}</a></th>
+      <td>{{ instance.branch }}</td>
+      <td>{{ instance.roll_no }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
-{% endfor %}
-<ul>
+
 {% endblock %}

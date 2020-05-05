@@ -104,7 +104,7 @@ def update_view(request,id):
     return render(request,"studentupdate.html",context)
 
 
-@login_required
+@login_required(login_url='student/login')
 @allowed_users(allowed_roles=['student'])
 def company_list_view(request):
     queryset=Company.objects.all()
@@ -131,7 +131,7 @@ def company_list_view(request):
     return render(request,"companylist.html",context)
 
 
-@login_required
+@login_required(login_url='student/login')
 @allowed_users(allowed_roles=['student'])
 #@student_only
 def change_password(request):
@@ -148,7 +148,7 @@ def change_password(request):
     return render(request,'change_password.html',{'form':form})
 
 
-@login_required
+@login_required(login_url='student/login')
 @allowed_users(allowed_roles=['student'])
 def company_detail_view(request,id):
     obj=get_object_or_404(Company,id=id)
@@ -170,3 +170,11 @@ def company_detail_view(request,id):
 
         }
         return render(request,"notallowed.html",context)
+
+
+
+@login_required(login_url='student/login')
+@allowed_users(allowed_roles=['student'])
+def apply_view(request,id):
+
+    return HttpResponse("Applied")
